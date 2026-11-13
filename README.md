@@ -1,6 +1,10 @@
 # Kuis-in!
 
-Kuis-in! is an Indonesian quiz-practice website by Chilnosu. Phase 1 includes the landing page, an explanation of the planned quiz flow, and a coming-soon notice. The React source uses JSX, Vite, Tailwind CSS, and Lucide React.
+Chilnosu's first project! Untuk membuat persiapan kuis, based on soal soal tahun lalu atau yang setipe dengan soal soal tahun lalu! (terinspirasi dari gw yang sering latihan soal pake kuis taun lalu)
+
+Sedang dalam tahap pengembangan, update kalo gabut aja, gak tau finalnya kapan, mungkin gw lulus duluan baru kelar wkakakak
+
+-Nichlous Osler Manurung, CSUI'26
 
 ## Run on macOS
 
