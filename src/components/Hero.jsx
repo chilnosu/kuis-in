@@ -26,9 +26,9 @@ export default function Hero() {
 
       <div className="hero-content text-center">
         <h1 id="hero-title">
-          Latihan Soal Jadi <span>Lebih Seru!</span>
+          Latihan Soal Dulu <span>Sebelum Membantai!</span>
         </h1>
-        <p>Uji kemampuanmu dengan berbagai latihan soal, cek hasilnya, dan lihat sejauh mana kamu berkembang.</p>
+        <p>Dengan mengerjakan soal tahun lalu, apakah kamu bisa mengerjakan kuis nanti</p>
         <div className="hero-actions flex flex-wrap items-center justify-center gap-3">
           <button className="primary-button" type="button" onClick={() => quizNotice.current.showModal()}>
             Mulai Kuis <ArrowRight size={19} aria-hidden="true" />
@@ -41,8 +41,8 @@ export default function Hero() {
 
       <dialog ref={quizNotice} className="quiz-dialog" aria-labelledby="quiz-notice-title" aria-describedby="quiz-notice-description">
         <div className="dialog-icon"><Clock3 size={24} aria-hidden="true" /></div>
-        <h2 id="quiz-notice-title">Kuis segera hadir!</h2>
-        <p id="quiz-notice-description">Latihan soal sedang disiapkan. Nantinya, kamu bisa pilih kuis dan langsung mulai latihan.</p>
+        <h2 id="quiz-notice-title">Latihan Belum Di Update!</h2>
+        <p id="quiz-notice-description">Latihan soal sedang disiapkan. Nichlous sedang sibuk hehe.</p>
         <form method="dialog">
           <button className="primary-button" type="submit">Kembali ke Beranda</button>
         </form>

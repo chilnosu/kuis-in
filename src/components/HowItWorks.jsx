@@ -2,20 +2,20 @@ import { ClipboardCheck, LayoutGrid, ListChecks } from 'lucide-react'
 
 const steps = [
   {
-    title: 'Pilih Kuis',
-    description: 'Pilih kategori dan latihan soal yang ingin kamu kerjakan.',
+    title: 'Pilih Mata Kuliah',
+    description: 'Pilih Mata Kuliah dan Materi yang ingin kamu kerjakan.',
     Icon: LayoutGrid,
     color: 'lime',
   },
   {
     title: 'Kerjakan Soal',
-    description: 'Jawab pertanyaan dan uji kemampuanmu.',
+    description: 'Jawab pertanyaan sebisa mungkin.',
     Icon: ListChecks,
     color: 'cyan',
   },
   {
     title: 'Lihat Hasil',
-    description: 'Cek nilaimu, baca pembahasan, dan simpan hasil kuis ke riwayat.',
+    description: 'Nilai akan langsung tertera, disertai pembahasan, dan simpan hasil kuis ke riwayat.',
     Icon: ClipboardCheck,
     color: 'mint',
   },
