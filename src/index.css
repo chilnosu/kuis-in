@@ -93,10 +93,11 @@ main:focus { outline: none; }
   color: #385b20;
   background: #eff7e6;
   text-decoration: none;
-  transition: background-color .18s ease;
+  box-shadow: inset 0 -2px 0 #a0d74e;
+  transition: background-color .18s ease, box-shadow .18s ease;
 }
 
-.nav-current:hover { background: #e5f3d5; }
+.nav-current:hover { background: #e5f3d5; box-shadow: inset 0 -2px 0 #78b91a; }
 .nav-upcoming { color: #596373; }
 
 .nav-item small {
@@ -111,6 +112,11 @@ main:focus { outline: none; }
 }
 
 .menu-button { display: none; }
+
+.menu-button,
+.brand-icon {
+  transition: background-color .18s ease, transform .18s ease;
+}
 
 .hero {
   position: relative;
@@ -194,20 +200,26 @@ main:focus { outline: none; }
   box-shadow: 0 3px 0 #63951b;
 }
 
-.primary-button:hover {
-  background: #99dc35;
-  box-shadow: 0 5px 0 #63951b;
-  transform: translateY(-2px);
-}
-
-.primary-button:active { box-shadow: 0 1px 0 #63951b; transform: translateY(2px); }
-
 .secondary-button {
   border-color: #dbe6db;
   background: #ffffffb8;
 }
 
-.secondary-button:hover { background: #fff; transform: translateY(-2px); }
+@media (hover: hover) {
+  .primary-button:hover {
+    background: #99dc35;
+    box-shadow: 0 5px 0 #63951b;
+    transform: translateY(-2px);
+  }
+
+  .secondary-button:hover { background: #fff; transform: translateY(-2px); }
+  .menu-button:hover { background: #eff7e6; }
+  .brand:hover .brand-icon { transform: translateY(-2px); }
+}
+
+.primary-button:active { box-shadow: 0 1px 0 #63951b; transform: translateY(2px); }
+.secondary-button:active,
+.menu-button:active { background: #eff7e6; transform: translateY(1px); }
 
 .scene {
   position: absolute;
@@ -289,6 +301,30 @@ main:focus { outline: none; }
 .right-sparkle { right: 8%; top: 1%; color: #228394; }
 .scene-sparkle svg { width: 28px; height: 28px; stroke-width: 1.7; }
 
+/* Translate separately so the original sticker angles stay in place. */
+@keyframes hero-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 var(--float-lift); }
+}
+
+.mascot-dizzy { --float-lift: -10px; --float-period: 6.8s; --float-delay: -.8s; }
+.mascot-side-eye { --float-lift: -8px; --float-period: 7.9s; --float-delay: -3.4s; }
+.question-tile { --float-lift: -5px; --float-period: 8.5s; --float-delay: -4.1s; }
+.check-tile { --float-lift: -6px; --float-period: 7.4s; --float-delay: -1.6s; }
+.left-sparkle { --float-lift: -4px; --float-period: 6.5s; --float-delay: -2.8s; }
+.right-sparkle { --float-lift: -5px; --float-period: 8.2s; --float-delay: -4.7s; }
+.scene-left .scene-orbit { --float-lift: -3px; --float-period: 11s; --float-delay: -2s; }
+.scene-right .scene-orbit { --float-lift: -4px; --float-period: 12.5s; --float-delay: -7s; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .mascot,
+  .scene-tile,
+  .scene-sparkle,
+  .scene-orbit {
+    animation: hero-float var(--float-period) ease-in-out var(--float-delay) infinite;
+  }
+}
+
 .how-section {
   padding-block: 50px 54px;
   scroll-margin-top: 24px;
@@ -310,6 +346,14 @@ main:focus { outline: none; }
   border-radius: 19px;
   background: white;
   box-shadow: 0 3px 7px #18252a05;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+@media (hover: hover) {
+  .step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px #18252a12;
+  }
 }
 
 .step-icon {
@@ -425,6 +469,9 @@ main:focus { outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .nav-current, .primary-button, .secondary-button { transition: none; }
-  .primary-button:hover, .primary-button:active, .secondary-button:hover { transform: none; }
+  .nav-current, .primary-button, .secondary-button,
+  .menu-button, .brand-icon, .step-card { transition: none; }
+  .primary-button:hover, .primary-button:active,
+  .secondary-button:hover, .secondary-button:active, .menu-button:active,
+  .brand:hover .brand-icon, .step-card:hover { transform: none; }
 }
