@@ -26,7 +26,7 @@ export default function Hero() {
 
       <div className="hero-content text-center">
         <h1 id="hero-title">
-          Latihan Soal Dulu <span>Sebelum Membantai!</span>
+          Latihan Soal <span>Sebelum Kuis</span>
         </h1>
         <p>Dengan mengerjakan soal tahun lalu, apakah kamu bisa mengerjakan kuis nanti</p>
         <div className="hero-actions flex flex-wrap items-center justify-center gap-3">
