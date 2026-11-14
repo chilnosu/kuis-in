@@ -301,20 +301,82 @@ main:focus { outline: none; }
 .right-sparkle { right: 8%; top: 1%; color: #228394; }
 .scene-sparkle svg { width: 28px; height: 28px; stroke-width: 1.7; }
 
-/* Translate separately so the original sticker angles stay in place. */
+/* Individual transforms sit on top of the illustrations' existing angles. */
 @keyframes hero-float {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 var(--float-lift); }
+  0%, 100% {
+    translate: 0 var(--float-low, 0px);
+    rotate: var(--float-tilt, 0deg);
+  }
+  50% {
+    translate: var(--float-drift, 0px) var(--float-high);
+    rotate: calc(-1 * var(--float-tilt, 0deg));
+  }
 }
 
-.mascot-dizzy { --float-lift: -10px; --float-period: 6.8s; --float-delay: -.8s; }
-.mascot-side-eye { --float-lift: -8px; --float-period: 7.9s; --float-delay: -3.4s; }
-.question-tile { --float-lift: -5px; --float-period: 8.5s; --float-delay: -4.1s; }
-.check-tile { --float-lift: -6px; --float-period: 7.4s; --float-delay: -1.6s; }
-.left-sparkle { --float-lift: -4px; --float-period: 6.5s; --float-delay: -2.8s; }
-.right-sparkle { --float-lift: -5px; --float-period: 8.2s; --float-delay: -4.7s; }
-.scene-left .scene-orbit { --float-lift: -3px; --float-period: 11s; --float-delay: -2s; }
-.scene-right .scene-orbit { --float-lift: -4px; --float-period: 12.5s; --float-delay: -7s; }
+.mascot-dizzy {
+  --float-low: 2px;
+  --float-high: -30px;
+  --float-tilt: 1.5deg;
+  --float-period: 3.2s;
+  --float-delay: -.35s;
+}
+
+.mascot-side-eye {
+  --float-low: 8px;
+  --float-high: -28px;
+  --float-tilt: -1deg;
+  --float-period: 4.1s;
+  --float-delay: -2.45s;
+}
+
+.question-tile {
+  --float-high: -18px;
+  --float-drift: -5px;
+  --float-tilt: 2deg;
+  --float-period: 4.6s;
+  --float-delay: -1.45s;
+}
+
+.check-tile {
+  --float-high: -20px;
+  --float-drift: 4px;
+  --float-tilt: -2.5deg;
+  --float-period: 5.2s;
+  --float-delay: -3.3s;
+}
+
+.left-sparkle {
+  --float-low: 3px;
+  --float-high: -17px;
+  --float-drift: 5px;
+  --float-tilt: 2deg;
+  --float-period: 3.8s;
+  --float-delay: -2.15s;
+}
+
+.right-sparkle {
+  --float-low: 14px;
+  --float-high: -6px;
+  --float-drift: -4px;
+  --float-tilt: -2deg;
+  --float-period: 4.3s;
+  --float-delay: -.95s;
+}
+
+.scene-left .scene-orbit {
+  --float-high: -16px;
+  --float-drift: -3px;
+  --float-period: 5.7s;
+  --float-delay: -4.2s;
+}
+
+.scene-right .scene-orbit {
+  --float-low: 6px;
+  --float-high: -12px;
+  --float-drift: 3px;
+  --float-period: 6s;
+  --float-delay: -2.8s;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .mascot,
@@ -448,6 +510,10 @@ main:focus { outline: none; }
   .scene { width: clamp(114px, 34vw, 192px); }
   .scene-left { bottom: 2px; left: 10%; }
   .scene-right { top: auto; right: 10%; bottom: 5px; }
+  /* Shift the float range down on mobile to clear the CTA row. */
+  .mascot-dizzy { --float-low: 4px; --float-high: -24px; --float-tilt: 0deg; }
+  .mascot-side-eye { --float-low: 8px; --float-high: -20px; }
+  .right-sparkle { --float-low: 8px; --float-high: -12px; }
   .scene-tile { width: 32px; height: 32px; border-radius: 9px; }
   .scene-tile svg { width: 16px; height: 16px; }
   .scene-sparkle svg { width: 19px; height: 19px; }
@@ -465,6 +531,11 @@ main:focus { outline: none; }
   .primary-button, .secondary-button { padding-inline: 10px; }
   .footer-inner { align-items: flex-start; flex-direction: column; gap: 12px; }
   .footer-credit { text-align: left; }
+}
+
+@media (max-width: 500px) {
+  .mascot-dizzy { --float-high: -18px; }
+  .mascot-side-eye { --float-high: -17px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
