@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { History, House, ListChecks, Menu, X } from 'lucide-react'
+import { House, ListChecks, Menu, X } from 'lucide-react'
 import Brand from './Brand'
 
 export default function Navbar() {
@@ -32,12 +32,9 @@ export default function Navbar() {
           <a className="nav-item nav-current" href="#beranda" aria-current="page" onClick={() => setMenuOpen(false)}>
             <House size={17} aria-hidden="true" /> Beranda
           </a>
-          <span className="nav-item nav-upcoming">
-            <ListChecks size={17} aria-hidden="true" /> Latihan Soal <small>Segera</small>
-          </span>
-          <span className="nav-item nav-upcoming">
-            <History size={17} aria-hidden="true" /> Riwayat Kuis <small>Segera</small>
-          </span>
+          <a className="nav-item" href="/latihan-soal">
+            <ListChecks size={17} aria-hidden="true" /> Latihan Soal
+          </a>
         </nav>
       </div>
     </header>

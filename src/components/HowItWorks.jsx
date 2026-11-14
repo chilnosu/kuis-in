@@ -15,7 +15,7 @@ const steps = [
   },
   {
     title: 'Lihat Hasil',
-    description: 'Nilai akan langsung tertera, disertai pembahasan, dan simpan hasil kuis ke riwayat.',
+    description: 'Nilai akan langsung tertera, disertai pembahasan.',
     Icon: ClipboardCheck,
     color: 'mint',
   },

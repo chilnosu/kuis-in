@@ -87,6 +87,8 @@ main:focus { outline: none; }
   font-size: 14px;
   font-weight: 700;
   white-space: nowrap;
+  color: #596373;
+  transition: background-color .18s ease, box-shadow .18s ease;
 }
 
 .nav-current {
@@ -94,22 +96,10 @@ main:focus { outline: none; }
   background: #eff7e6;
   text-decoration: none;
   box-shadow: inset 0 -2px 0 #a0d74e;
-  transition: background-color .18s ease, box-shadow .18s ease;
 }
 
+.nav-item:hover { background: #f5f7f8; }
 .nav-current:hover { background: #e5f3d5; box-shadow: inset 0 -2px 0 #78b91a; }
-.nav-upcoming { color: #596373; }
-
-.nav-item small {
-  padding: 3px 7px;
-  border: 1px solid #e5e9ed;
-  border-radius: 6px;
-  background: #f6f8fa;
-  color: #596373;
-  font-size: 10px;
-  font-weight: 750;
-  letter-spacing: .015em;
-}
 
 .menu-button { display: none; }
 
@@ -443,25 +433,6 @@ main:focus { outline: none; }
 .footer-credit strong { color: var(--color-ink); }
 .footer-heart { color: #458016; font-size: 17px; line-height: 1; }
 
-.quiz-dialog {
-  position: fixed;
-  inset: 0;
-  width: min(420px, calc(100% - 32px));
-  max-height: calc(100% - 32px);
-  margin: auto;
-  padding: 27px;
-  border: 1px solid #dfe8dc;
-  border-radius: 24px;
-  background: white;
-  color: var(--color-ink);
-  box-shadow: 0 22px 85px #132f273a;
-}
-
-.quiz-dialog::backdrop { background: #17242a85; }
-.dialog-icon { display: grid; width: 45px; height: 45px; place-items: center; border-radius: 13px; background: #eff7de; color: #426c1c; }
-.quiz-dialog h2 { margin: 13px 0 5px; font-size: 25px; font-weight: 850; letter-spacing: -.035em; }
-.quiz-dialog p { margin: 0 0 19px; color: var(--color-brand-gray); line-height: 1.55; }
-
 @media (max-width: 1020px) {
   .shell { width: calc(100% - 48px); }
   .hero { min-height: 438px; }
@@ -540,7 +511,7 @@ main:focus { outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .nav-current, .primary-button, .secondary-button,
+  .nav-item, .primary-button, .secondary-button,
   .menu-button, .brand-icon, .step-card { transition: none; }
   .primary-button:hover, .primary-button:active,
   .secondary-button:hover, .secondary-button:active, .menu-button:active,

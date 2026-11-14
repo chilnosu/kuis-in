@@ -1,11 +1,8 @@
-import { useRef } from 'react'
-import { ArrowDown, ArrowRight, Check, CircleHelp, Clock3, Sparkles } from 'lucide-react'
+import { ArrowDown, ArrowRight, Check, CircleHelp, Sparkles } from 'lucide-react'
 
 const mascotPath = import.meta.env.BASE_URL + 'mascots/'
 
 export default function Hero() {
-  const quizNotice = useRef(null)
-
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-stage" aria-hidden="true">
@@ -30,23 +27,14 @@ export default function Hero() {
         </h1>
         <p>Dengan mengerjakan soal tahun lalu, apakah kamu bisa mengerjakan kuis nanti</p>
         <div className="hero-actions flex flex-wrap items-center justify-center gap-3">
-          <button className="primary-button" type="button" onClick={() => quizNotice.current.showModal()}>
+          <a className="primary-button" href="/latihan-soal">
             Mulai Kuis <ArrowRight size={19} aria-hidden="true" />
-          </button>
+          </a>
           <a className="secondary-button" href="#cara-kerja">
             Lihat Cara Kerja <ArrowDown size={17} aria-hidden="true" />
           </a>
         </div>
       </div>
-
-      <dialog ref={quizNotice} className="quiz-dialog" aria-labelledby="quiz-notice-title" aria-describedby="quiz-notice-description">
-        <div className="dialog-icon"><Clock3 size={24} aria-hidden="true" /></div>
-        <h2 id="quiz-notice-title">Latihan Belum Di Update!</h2>
-        <p id="quiz-notice-description">Latihan soal sedang disiapkan. Nichlous sedang sibuk hehe.</p>
-        <form method="dialog">
-          <button className="primary-button" type="submit">Kembali ke Beranda</button>
-        </form>
-      </dialog>
     </section>
   )
 }
