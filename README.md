@@ -26,9 +26,9 @@ npm run build
 npm run preview
 ```
 
-The build writes the production site to `dist/`. Open the Local URL printed by the preview server, normally `http://localhost:4173`. At desktop and mobile widths, follow **Mulai Kuis** to **Pilih Semester**, then select a semester and check its course page. Try the back arrow, browser Back and Forward, refreshing `/latihan-soal/semester/1`, and opening `/latihan-soal/semester/9`. On the homepage, check **Lihat Cara Kerja** and the mobile menu.
+The build writes the production site to `dist/`. Open the Local URL printed by the preview server, normally `http://localhost:4173`. Follow **Mulai Kuis** to **Pilih Semester**, then check the four Semester 1 course cards and their notices at desktop, tablet, and mobile widths. Try the back arrow, browser Back and Forward, refreshing `/latihan-soal/semester/1`, and opening `/latihan-soal/semester/9`.
 
-Phase 2 ends at **Pilih Mata Kuliah**. Each semester shows an empty state until the course list is available.
+Phase 2 ends at **Pilih Mata Kuliah**. Semester 1 lists four courses. Semesters 2–8 show an empty state until their course lists are available.
 
 ## Main files
 
@@ -37,11 +37,12 @@ Phase 2 ends at **Pilih Mata Kuliah**. Each semester shows an empty state until 
 | `src/App.jsx` | Selects a page from the current URL. |
 | `src/pages/Home.jsx` | Assembles the homepage and its four sections. |
 | `src/pages/SemesterSelection.jsx` | Displays the eight semester links. |
-| `src/pages/CourseSelection.jsx` | Displays the selected semester and its empty state. |
+| `src/pages/CourseSelection.jsx` | Displays course cards and notices for Semester 1, and an empty state for Semesters 2–8. |
+| `src/data/courses.js` | Stores Semester 1 course names and mascot assignments. |
 | `src/components/SelectionLayout.jsx` | Shares the header and back link between selection pages. |
 | `src/components/selection.css` | Styles the selection pages. |
 | `src/index.css` | Tailwind import, color tokens, responsive layout, and motion preferences. |
-| `public/mascots/` | Homepage mascot images. |
+| `public/mascots/` | Mascot images for the homepage and course cards. |
 | `vite.config.js` | React and Tailwind integration for development and production. |
 | `vercel.json` | Serves the application when opening or refreshing a selection URL on Vercel. |
 

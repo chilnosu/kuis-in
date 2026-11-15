@@ -140,15 +140,11 @@ main:focus { outline: none; }
 
 .hero-content { position: relative; z-index: 1; }
 
-.hero h1,
-.how-section h2 {
+.hero h1 {
   margin: 0;
   font-family: "Bricolage Grotesque", var(--font-sans);
   font-weight: 850;
   letter-spacing: -.062em;
-}
-
-.hero h1 {
   font-size: clamp(45px, 5.35vw, 78px);
   line-height: 1.01;
 }
@@ -167,32 +163,22 @@ main:focus { outline: none; }
   text-wrap: pretty;
 }
 
-.primary-button,
-.secondary-button {
+.primary-button {
   display: inline-flex;
   min-height: 50px;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 11px 19px;
-  border: 1px solid transparent;
+  border: 1px solid #78b91a;
   border-radius: 13px;
+  background: var(--color-brand-green);
   color: var(--color-ink);
   font-size: 14px;
   font-weight: 800;
   text-decoration: none;
-  transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
-}
-
-.primary-button {
-  border-color: #78b91a;
-  background: var(--color-brand-green);
   box-shadow: 0 3px 0 #63951b;
-}
-
-.secondary-button {
-  border-color: #dbe6db;
-  background: #ffffffb8;
+  transition: background-color .18s ease, transform .18s ease, box-shadow .18s ease;
 }
 
 @media (hover: hover) {
@@ -202,13 +188,11 @@ main:focus { outline: none; }
     transform: translateY(-2px);
   }
 
-  .secondary-button:hover { background: #fff; transform: translateY(-2px); }
   .menu-button:hover { background: #eff7e6; }
   .brand:hover .brand-icon { transform: translateY(-2px); }
 }
 
 .primary-button:active { box-shadow: 0 1px 0 #63951b; transform: translateY(2px); }
-.secondary-button:active,
 .menu-button:active { background: #eff7e6; transform: translateY(1px); }
 
 .scene {
@@ -377,16 +361,7 @@ main:focus { outline: none; }
   }
 }
 
-.how-section {
-  padding-block: 50px 54px;
-  scroll-margin-top: 24px;
-}
-
-.how-section h2 {
-  margin-bottom: 23px;
-  font-size: clamp(28px, 3.2vw, 43px);
-  line-height: 1.12;
-}
+.how-section { padding-block: 35px 54px; }
 
 .step-grid { margin: 0; padding: 0; list-style: none; }
 
@@ -420,7 +395,7 @@ main:focus { outline: none; }
 .step-icon-cyan { background: #dcf4f8; color: #136879; }
 .step-icon-mint { background: #e2f3e8; color: #216049; }
 
-.step-card h3 { margin: 0 0 4px; font-size: 17px; font-weight: 800; letter-spacing: -.025em; }
+.step-card h2 { margin: 0 0 4px; font-size: 17px; font-weight: 800; letter-spacing: -.025em; }
 .step-card p { margin: 0; color: var(--color-brand-gray); font-size: 13.5px; line-height: 1.55; }
 
 .site-footer { border-top: 1px solid #e3e9e9; background: white; }
@@ -488,9 +463,8 @@ main:focus { outline: none; }
   .scene-tile { width: 32px; height: 32px; border-radius: 9px; }
   .scene-tile svg { width: 16px; height: 16px; }
   .scene-sparkle svg { width: 19px; height: 19px; }
-  .primary-button, .secondary-button { min-height: 46px; padding-inline: 13px; font-size: 13px; gap: 7px; }
-  .how-section { padding-block: 37px; }
-  .how-section h2 { margin-bottom: 17px; }
+  .primary-button { min-height: 46px; padding-inline: 13px; font-size: 13px; gap: 7px; }
+  .how-section { padding-block: 24px 37px; }
   .step-card { min-height: 0; padding: 15px; }
   .footer-inner { min-height: 0; }
 }
@@ -498,8 +472,7 @@ main:focus { outline: none; }
 @media (max-width: 385px) {
   .scene-left { left: 6%; }
   .scene-right { right: 6%; }
-  .hero-actions { column-gap: 8px; }
-  .primary-button, .secondary-button { padding-inline: 10px; }
+  .primary-button { padding-inline: 10px; }
   .footer-inner { align-items: flex-start; flex-direction: column; gap: 12px; }
   .footer-credit { text-align: left; }
 }
@@ -511,9 +484,8 @@ main:focus { outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .nav-item, .primary-button, .secondary-button,
+  .nav-item, .primary-button,
   .menu-button, .brand-icon, .step-card { transition: none; }
   .primary-button:hover, .primary-button:active,
-  .secondary-button:hover, .secondary-button:active, .menu-button:active,
-  .brand:hover .brand-icon, .step-card:hover { transform: none; }
+  .menu-button:active, .brand:hover .brand-icon, .step-card:hover { transform: none; }
 }

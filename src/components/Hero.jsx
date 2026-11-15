@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, Check, CircleHelp, Sparkles } from 'lucide-react'
+import { ArrowRight, Check, CircleHelp, Sparkles } from 'lucide-react'
 
 const mascotPath = import.meta.env.BASE_URL + 'mascots/'
 
@@ -26,12 +26,9 @@ export default function Hero() {
           Latihan Soal <span>Sebelum Kuis</span>
         </h1>
         <p>Dengan mengerjakan soal tahun lalu, apakah kamu bisa mengerjakan kuis nanti</p>
-        <div className="hero-actions flex flex-wrap items-center justify-center gap-3">
+        <div className="flex justify-center">
           <a className="primary-button" href="/latihan-soal">
             Mulai Kuis <ArrowRight size={19} aria-hidden="true" />
-          </a>
-          <a className="secondary-button" href="#cara-kerja">
-            Lihat Cara Kerja <ArrowDown size={17} aria-hidden="true" />
           </a>
         </div>
       </div>

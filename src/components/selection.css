@@ -22,7 +22,9 @@
 
 .selection-header h1,
 .semester-card h2,
-.course-empty h2 {
+.course-card-title,
+.course-empty h2,
+.course-notice h2 {
   font-family: "Bricolage Grotesque", var(--font-sans);
   font-weight: 850;
   letter-spacing: -.04em;
@@ -33,7 +35,9 @@
 
 .selection-header p,
 .semester-card p,
-.course-empty p {
+.course-card-label,
+.course-empty p,
+.course-notice p {
   color: var(--color-brand-gray);
   line-height: 1.5;
 }
@@ -55,14 +59,16 @@
 }
 
 .semester-card,
-.course-empty {
+.course-card,
+.course-empty,
+.course-notice {
   border: 1px solid #e1e7e8;
   border-radius: 24px;
   background: white;
   box-shadow: 0 3px 10px #17242a0d;
 }
 
-.semester-card {
+:is(.semester-card, .course-card) {
   display: flex;
   height: 100%;
   min-height: clamp(230px, 21vw, 298px);
@@ -101,19 +107,56 @@
   transition: transform .24s ease;
 }
 
-.semester-card:focus-visible { border-color: var(--color-brand-cyan); }
+:is(.semester-card, .course-card):focus-visible { border-color: var(--color-brand-cyan); }
 
 @media (hover: hover) {
   .selection-back:hover { background: #e8efeb; }
 
-  .semester-card:hover {
+  :is(.semester-card, .course-card):hover {
     transform: translateY(-5px);
     border-color: #c9dfbd;
     box-shadow: 0 10px 22px #17242a16;
   }
 
-  .semester-card:hover .semester-arrow { transform: translateX(4px); }
+  :is(.semester-card, .course-card):hover .semester-arrow { transform: translateX(4px); }
 }
+
+.course-card {
+  width: 100%;
+  min-height: 240px;
+  text-align: left;
+}
+
+.course-card-art {
+  display: grid;
+  width: 112px;
+  aspect-ratio: 1;
+  place-items: center;
+  margin-bottom: 16px;
+  border-radius: 22%;
+  background: #eef7d9;
+}
+
+.selection-grid li:nth-child(2) .course-card-art { background: #dcf4f8; }
+.selection-grid li:nth-child(3) .course-card-art { background: #edf1f3; }
+.selection-grid li:nth-child(4) .course-card-art { background: #e2f3e8; }
+.course-card-art img { width: 100%; height: 100%; object-fit: contain; }
+.course-card-title { font-size: clamp(22px, 2vw, 27px); }
+.course-card-label { margin: 6px 0 12px; font-size: 15px; }
+.course-card .semester-arrow { width: 22px; }
+
+.course-notice {
+  inset: 0;
+  width: min(420px, calc(100% - 32px));
+  margin: auto;
+  padding: 24px;
+  color: var(--color-ink);
+  box-shadow: 0 18px 50px #17242a26;
+}
+
+.course-notice::backdrop { background: #17242a80; }
+.course-notice h2 { font-size: 24px; }
+.course-notice p { margin: 8px 0 18px; }
 
 .course-empty {
   display: grid;
@@ -142,7 +185,7 @@
 }
 
 @media (max-width: 599px) {
-  .semester-card { min-height: 210px; border-radius: 20px; }
+  :is(.semester-card, .course-card) { min-height: 210px; border-radius: 20px; }
 }
 
 @media (min-width: 768px) {
@@ -157,13 +200,14 @@
     gap: clamp(20px, 1.75vw, 26px);
   }
 
-  .semester-card { min-height: 232px; padding: 22px; }
+  :is(.semester-card, .course-card) { min-height: 232px; padding: 22px; }
   .semester-icon { margin-bottom: 16px; }
   .semester-card h2 { font-size: clamp(26px, 2vw, 29px); }
   .semester-card p { margin-bottom: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .selection-back, .semester-card, .semester-arrow { transition: none; }
-  .semester-card:hover, .semester-card:hover .semester-arrow { transform: none; }
+  .selection-back, .semester-card, .course-card, .semester-arrow { transition: none; }
+  :is(.semester-card, .course-card):hover,
+  :is(.semester-card, .course-card):hover .semester-arrow { transform: none; }
 }
