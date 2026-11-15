@@ -10,7 +10,11 @@ function CourseCards({ courses }) {
   const [selectedCourse, setSelectedCourse] = useState(null)
 
   useEffect(() => {
-    if (selectedCourse) notice.current.showModal()
+    if (!selectedCourse) return
+
+    const dialog = notice.current
+    dialog.autofocus = true
+    dialog.showModal()
   }, [selectedCourse])
 
   return (
@@ -22,7 +26,10 @@ function CourseCards({ courses }) {
               className="course-card"
               type="button"
               aria-haspopup="dialog"
-              onClick={() => setSelectedCourse(course.name)}
+              onClick={event => {
+                event.currentTarget.focus({ preventScroll: true })
+                setSelectedCourse(course.name)
+              }}
             >
               <span className="course-card-art" aria-hidden="true">
                 <img src={mascotPath + course.mascot} width="500" height="500" alt="" />

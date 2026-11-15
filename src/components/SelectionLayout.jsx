@@ -8,7 +8,7 @@ export default function SelectionLayout({ title, subtitle, backHref, backLabel, 
   }, [title])
 
   return (
-    <main className="selection-page" aria-labelledby="selection-title">
+    <main id="konten" className="selection-page" aria-labelledby="selection-title" tabIndex={-1}>
       <header className="selection-header">
         <a className="selection-back" href={backHref} aria-label={backLabel}>
           <ArrowLeft size={24} aria-hidden="true" />
